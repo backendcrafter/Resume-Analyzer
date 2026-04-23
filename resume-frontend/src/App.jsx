@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
 export default function App() {
   const [jobDescription, setJobDescription] = useState('');
   const [resumeFile, setResumeFile] = useState(null);
@@ -22,7 +24,7 @@ export default function App() {
     formData.append('jobDescription', jobDescription);
 
     try {
-      const res = await axios.post('http://localhost:3001/analyze', formData);
+      const res = await axios.post(`${API_URL}/analyze`, formData);
       setAnalysis(res.data.analysis);
     } catch (err) {
       setError('Analysis failed. Please try again.');
