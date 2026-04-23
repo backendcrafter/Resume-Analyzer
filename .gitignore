@@ -1,0 +1,4 @@
+/resume-analyzer/.env
+node_modules/
+resume-analyzer/node_modules/
+resume-frontend/node_modules/
